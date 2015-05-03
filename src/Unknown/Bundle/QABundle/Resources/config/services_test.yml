@@ -1,0 +1,8 @@
+parameters:
+
+services:
+    Unknown.event_listener.doctrine:
+        class:            Unknown\Bundle\QABundle\EventListener\DoctrineListener
+        arguments:        []
+        tags:
+                        - { name: doctrine.event_subscriber }

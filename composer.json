@@ -1,0 +1,40 @@
+{
+    "name":                                       "unknown/qa-bundle",
+    "type":                                       "library",
+    "description":                                "Quality assurance bundle for Symfony2 ",
+    "keywords": [
+        "qa", "symfony2", "database", "purge"
+    ],
+    "license":                                    "MIT",
+    "authors": [
+        {
+            "name":                               "Unknown",
+            "email":                              "unknown.opensource@gmail.com",
+            "role":                               "Developer"
+        }
+    ],
+    "require": {
+        "php":                                    "~5.4",
+        "symfony/dependency-injection":           "~2.6",
+        "sensio/framework-extra-bundle":          "~3.0",
+        "doctrine/orm":                           "~2.4"
+    },
+    "require-dev": {
+        "phpspec/phpspec":                        "~2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Unknown\\":                          "src/Unknown",
+            "spec\\Unknown\\":                    "spec/Unknown"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability":                          "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-master":                         "1.0.x-dev"
+        }
+    }
+}
