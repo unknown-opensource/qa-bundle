@@ -34,7 +34,7 @@ class DoctrineListener implements EventSubscriber
      *
      * @param LifecycleEventArgs $args
      */
-    public function postRemove(LifecycleEventArgs $args)
+    public function postRemove($args)
     {
         if (self::$removeCallback) {
             $callback = self::$removeCallback;
@@ -47,7 +47,7 @@ class DoctrineListener implements EventSubscriber
      *
      * @param LifecycleEventArgs $args
      */
-    public function postPersist(LifecycleEventArgs $args)
+    public function postPersist($args)
     {
         if (self::$persistCallback) {
             $callback = self::$persistCallback;
@@ -60,7 +60,7 @@ class DoctrineListener implements EventSubscriber
      *
      * @param LifecycleEventArgs $args
      */
-    public function postUpdate(LifecycleEventArgs $args)
+    public function postUpdate($args)
     {
         if (self::$updateCallback) {
             $callback = self::$updateCallback;
