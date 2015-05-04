@@ -17,7 +17,7 @@
         "php":                                    "~5.3",
         "symfony/dependency-injection":           "~2.0",
         "sensio/framework-extra-bundle":          "~2.0",
-        "doctrine/orm":                           "~2.4"
+        "doctrine/orm":                           "~2.2"
     },
     "require-dev": {
         "phpspec/phpspec":                        "~2.1"
