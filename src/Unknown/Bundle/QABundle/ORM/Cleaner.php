@@ -18,23 +18,30 @@ class Cleaner
     protected $container;
 
     /**
+     * @var callback
+     */
+    protected $initialActions;
+
+    /**
      * Constructor.
      *
      * @param $container Container
      */
-    public function __construct(Container $container)
+    public function __construct(Container $container, $initialActions = null)
     {
         $this->container = $container;
+        $this->initialActions = $initialActions;
     }
 
     /**
      * Execute purger.
      *
+     * @param boolean $force
      * @return null
      */
-    public function execute()
+    public function execute($force = false)
     {
-        if (!self::$dbIsClean) {
+        if (!self::$dbIsClean || $force) {
             $this->purgeAndLoad();
         }
         $this->registerCallbacks();
@@ -62,6 +69,10 @@ class Cleaner
             return;
         }
         $em = $this->container->get('doctrine.orm.entity_manager'); /** @var $em \Doctrine\ORM\EntityManager */
+        if ($this->initialActions) {
+            $actions = $this->initialActions;
+            $actions($em);
+        }
         $purger = new ORMPurger($em);
         $purger->setPurgeMode(ORMPurger::PURGE_MODE_DELETE);
         $executor = new ORMExecutor($em, $purger);

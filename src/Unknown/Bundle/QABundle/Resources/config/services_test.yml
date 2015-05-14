@@ -1,7 +1,7 @@
 parameters:
 
 services:
-    Unknown.event_listener.doctrine:
+    unknown.event_listener.doctrine:
         class:            Unknown\Bundle\QABundle\EventListener\DoctrineListener
         arguments:        []
         tags:
