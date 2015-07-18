@@ -26,16 +26,21 @@ Installation
         new Unknown\Bundle\QABundle\UnknownQABundle(),
     );
 
+3. Add DatabaseContext in Behat:
 
-Usage in behat
+
+    default:
+        suites:
+            default:
+                contexts:
+                    - Unknown\QABundle\Behat\DatabaseContext
+                        container:   '@service_container'
+
+
+Result
 ======================
 
-Add following lines in FeatureContext:
+Database will be purged if and only if changes were made during previous scenario.
+Database will also be purged if scenario is tagged with either @javascript or @db-purge.
 
-    /** @BeforeScenario */
-    public function before(\Behat\Behat\Hook\Scope\BeforeScenarioScope $scope)
-    {
-        (new \Unknown\Bundle\QABundle\ORM\Cleaner($this->container))->execute();
-    }
-
-Database will be purged only if changes were made during previous scenario.
+Good luck!
